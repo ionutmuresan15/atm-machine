@@ -8,15 +8,15 @@ public class AtmOperationsImplemented implements AtmOperationsToImplement{
 
     @Override
     public void viewBalance() {
-        System.out.println("Available balance: " + atm.getBalance());
+        System.out.println("Available balance: " + atm.getBalance() + "$");
     }
 
     @Override
     public void withdrawAmount(double withdrawAmount) {
         if(withdrawAmount % 5 == 0) {
             if (withdrawAmount <= atm.getBalance()) {
-                statement.put(withdrawAmount, " amount withdrawn.");
-                System.out.println("Withdraw money " + withdrawAmount);
+                statement.put(withdrawAmount, "$ amount withdrawn.");
+                System.out.println("Withdraw money " + withdrawAmount + "$");
                 atm.setBalance(atm.getBalance() - withdrawAmount);
                 viewBalance();
             } else {
@@ -30,8 +30,8 @@ public class AtmOperationsImplemented implements AtmOperationsToImplement{
 
     @Override
     public void depositAmount(double depositAmount) {
-        statement.put(depositAmount, " amount deposited.");
-        System.out.println(depositAmount + " deposited successfully!");
+        statement.put(depositAmount, "$ amount deposited.");
+        System.out.println(depositAmount + "$ deposited successfully!");
         atm.setBalance(atm.getBalance() + depositAmount);
         viewBalance();
     }
